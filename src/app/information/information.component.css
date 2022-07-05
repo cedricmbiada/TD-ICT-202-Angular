@@ -1,0 +1,12 @@
+mat-accordion{
+    margin: 0px;
+}
+mat-expansion-panel{
+    padding: 8px;
+}
+.example-full-width{
+    margin-left: 0%;
+}
+.example-button-row{
+    margin-left: 0%;
+}

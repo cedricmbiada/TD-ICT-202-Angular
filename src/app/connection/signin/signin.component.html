@@ -1,0 +1,32 @@
+<div>
+  <form class="example-form">
+    <h2 mat-line style="margin-top: 0px;position:relative;margin-left: 40%;" ><a routerLink="/signup">Sign Up</a></h2>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label >Email</mat-label>
+      <input type="email" matInput  placeholder="Ex. pat@example.com" style="color: rgb(254, 254, 254);">
+      <mat-hint style="color: rgb(155, 128, 255);"> Your Email here</mat-hint>
+      <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="emailFormControl.hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="example-full-width">
+      <mat-label>Enter your password</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'" style="color: white;">
+      <mat-hint style="color:rgb(123, 86, 255) ;"> Your Password here</mat-hint>
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+    <div class="example-button-row">
+      <button mat-raised-button color="primary">Connexion</button>
+    </div> 
+    <h3 mat-line style="margin-left:155px;">--OR--</h3>
+    <div class="example-button-row">
+      <button mat-stroked-button color="primary" style="border: 1px solid blue;"><a routerLink="/home">Create account</a></button>
+    </div>
+  </form>
+</div>
