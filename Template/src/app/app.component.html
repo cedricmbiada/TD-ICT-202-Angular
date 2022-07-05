@@ -1,0 +1,110 @@
+<div class="container-fluid" [ngClass]="theme">
+
+    <div class="btn-group p-1" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-secondary" (click)="useLanguage('en')">En</button>
+        <button type="button" class="btn btn-secondary" (click)="useLanguage('fr')">Fr</button>
+        <button type="button" class="btn btn-secondary" (click)="exportPDF()">Download Cv</button>
+        <button type="button" class="btn btn-secondary" (click)="toggle()">Change theme-color</button>
+    </div>
+
+
+
+    <div id="content" #content class="p-5" style="padding-top: 5px !important;">
+        <div style="background-color: rgb(42, 165, 165); height: 200px;"></div>
+        <div class="row" style="margin-top: -120px;">
+            <div class="col-lg-3 col-md-12 col-sm-12 shadow p-3 mb-5 bg-white rounded">
+                <div class="row">
+                    <div class='col-lg-12 col-md-6 col-sm-6'><img class="img rounded float-left" [src]="urllink"></div>
+                    <div class="col-lg-12 col-md-6 col-sm-6"><input type="file" (change)="selectFiles($event)"></div>
+                </div>
+
+                <div class="contact">
+                    <h3>{{ 'CONTACT' | translate }}</h3>
+                    <p *ngIf="!contacts" (click)="change7()">{{tel}}</p>
+                    <input *ngIf="contacts" type="text" [(ngModel)]="tel" (blur)="change7()">
+                    <hr>
+                    <h3>{{ 'EMAIL' | translate }}</h3>
+                    <p *ngIf="!mail" (click)="change8()">{{email}}</p>
+                    <input *ngIf="mail" type="text" [(ngModel)]="email" (blur)="change8()">
+                    <hr>
+                    <h3>{{ 'SOCIAL' | translate }}</h3>
+                    <ul>
+                        <li *ngIf="!docu3" (click)="change9()">{{doc3}}</li>
+                        <input *ngIf="docu4" type="text" [(ngModel)]="doc3" (blur)="change9()">
+                        <br>
+                        <li *ngIf="!docu4" (click)="change10()">{{doc4}}</li>
+                        <input *ngIf="docu4" type="text" [(ngModel)]="doc4" (blur)="change10()">
+                        <br>
+                    </ul>
+                    <hr>
+                    <p><a href="google.com">faebook.com</a></p>
+                    <p><a href="ig.com">instagram.com</a></p>
+                    <p><a href="twitter.com">twitter.com</a></p>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-12 col-sm-12 p-3">
+                <div class="container-padding">
+                    <div class="padding1">
+
+                        <h1 *ngIf="!name" (click)="change()">{{title}}</h1>
+                        <input *ngIf="name" type="text" [(ngModel)]="title" (blur)="change()">
+                    </div>
+                    <div class="container">
+                        <div class="content1"><br><br>
+                            <h3>{{ 'CURRENT' | translate }}</h3>
+                            <h4 *ngIf="!place" (click)="change1()">{{adress}}</h4>
+                            <input *ngIf="place" type="text" [(ngModel)]="adress" (blur)="change1()">
+                        </div>
+                        <div class="content2">
+                            <h3>{{ 'COMPETE' | translate }}</h3>
+   
+                            <p *ngIf="!competence" (click)="change2()">{{competetext}}</p>
+                            <textarea *ngIf="competence" rows="5" (blur)="change2()" style="width: 95%;" class="row col-12 form-control" [(ngModel)]="competetext">
+                                {{competetext}}
+                            </textarea>
+                            <br>
+                            <h3>{{ 'FORMA' | translate }}</h3>
+                           
+                            <p *ngIf="!training" (click)="change3()">{{traintext}}</p>
+                            <textarea *ngIf="training" rows="5" (blur)="change3()" style="width: 95%;" class="row col-12 form-control" [(ngModel)]="traintext">
+                                {{traintext}}
+                            </textarea>
+                            <br>
+                            <h3>{{ 'EXPER' | translate }}</h3>
+                            <p *ngIf="!exp" (click)="changeExp()">{{experienceText}}</p>
+                            <textarea *ngIf="exp" rows="5" (blur)="changeExp()" style="width: 95%;" class="row col-12 form-control" [(ngModel)]="experienceText">
+                                {{experienceText}}
+                            </textarea>
+                            <br>
+                            <h3>{{ 'CERTIF' | translate }}</h3>
+                            
+                            <p *ngIf="!certification" (click)="change4()">{{certiftext}}</p>
+                            <textarea *ngIf="certification" rows="5" (blur)="change4()" style="width: 95%;" class="row col-12 form-control" [(ngModel)]="certiftext">
+                                {{certiftext}}
+                            </textarea>
+                            <br>
+                            <h3>{{ 'LOISIR' | translate }}</h3>
+                           
+                            <p *ngIf="!loisir" (click)="changeLois()">{{loisirText}}</p>
+                            <textarea *ngIf="loisir" rows="5" (blur)="changeLois()" style="width: 95%;" class="row col-12 form-control" [(ngModel)]="loisirText">
+                                {{loisirText}}
+                            </textarea>
+                            <br>
+                            <h3>{{ 'LANG' | translate }}</h3>
+
+                            <input type="checkbox" class="increase" id=check> Anglais<br>
+                            <input type="checkbox" class="increase" id=check> francais<br>
+                            <input type="checkbox" class="increase" id=check> Espagnol
+
+
+
+                             </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ngx-qrcode [elementType]="elementType" [errorCorrectionLevel]="correctionLevel" [value]="value" alt="Demo QR Code" cssClass="bshadow"></ngx-qrcode>
+
+    <textarea [(ngModel)]="value"></textarea>
+</div>
